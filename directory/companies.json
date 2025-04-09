@@ -1,0 +1,91 @@
+{
+  "sectors": [
+    {
+      "name": "Technologies & IT",
+      "companies": [
+        {
+          "name": "MarocTech Solutions",
+          "description": "Solutions digitales et développement logiciel",
+          "address": "Technopark, Route de Nouaceur, Casablanca",
+          "phone": "+212 522 123 456",
+          "email": "contact@maroctech.ma",
+          "website": "https://www.maroctech.ma",
+          "social": {
+            "linkedin": "maroctech",
+            "facebook": "maroctech"
+          }
+        },
+        {
+          "name": "Digital Factory",
+          "description": "Agence de transformation digitale",
+          "address": "Rue Ibnou Katir, Maarif, Casablanca",
+          "phone": "+212 522 987 654",
+          "email": "info@digitalfactory.ma",
+          "website": "https://www.digitalfactory.ma",
+          "social": {
+            "linkedin": "digitalfactory",
+            "facebook": "digitalfactoryma"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Finance & Banque",
+      "companies": [
+        {
+          "name": "Atlas Invest",
+          "description": "Services financiers et investissements",
+          "address": "Avenue Hassan II, Rabat",
+          "phone": "+212 537 456 789",
+          "email": "contact@atlasinvest.ma",
+          "website": "https://www.atlasinvest.ma",
+          "social": {
+            "linkedin": "atlasinvest",
+            "facebook": "atlasinvestma"
+          }
+        },
+        {
+          "name": "Finance Plus",
+          "description": "Conseil en gestion financière",
+          "address": "Boulevard Mohammed V, Marrakech",
+          "phone": "+212 524 789 123",
+          "email": "info@financeplus.ma",
+          "website": "https://www.financeplus.ma",
+          "social": {
+            "linkedin": "financeplus",
+            "facebook": "financeplusma"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Industrie & Manufacturing",
+      "companies": [
+        {
+          "name": "Atlas Industries",
+          "description": "Production industrielle et manufacturing",
+          "address": "Zone Industrielle, Tanger",
+          "phone": "+212 539 321 654",
+          "email": "contact@atlasindustries.ma",
+          "website": "https://www.atlasindustries.ma",
+          "social": {
+            "linkedin": "atlasindustries",
+            "facebook": "atlasindustriesma"
+          }
+        },
+        {
+          "name": "Maroc Manufacturing",
+          "description": "Solutions industrielles innovantes",
+          "address": "Parc Industriel, Kénitra",
+          "phone": "+212 537 654 321",
+          "email": "info@marocmanufacturing.ma",
+          "website": "https://www.marocmanufacturing.ma",
+          "social": {
+            "linkedin": "marocmanufacturing",
+            "facebook": "marocmanufacturingma"
+          }
+        }
+      ]
+    }
+  ]
+}
