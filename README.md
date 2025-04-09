@@ -28,11 +28,42 @@ soukonline/
 ├── login.html          # Page de connexion
 ├── register.html       # Page d'inscription
 ├── README.md          # Documentation
-├── css/               # Styles personnalisés (si nécessaire)
+├── css/               # Styles personnalisés
 ├── js/                # Scripts JavaScript
+│   └── jobs.js        # Gestion des offres d'emploi
+├── jobs/              # Système d'offres d'emploi
+│   ├── fetch_jobs.py  # Script de récupération des offres
+│   ├── update_jobs.sh # Script de mise à jour automatique
+│   └── latest_jobs.json # Données des offres d'emploi
+├── .github/           # Configuration GitHub
+│   └── workflows/     # GitHub Actions
+│       └── update-jobs.yml # Workflow de mise à jour des offres
 ├── images/            # Images du site
 └── blog/              # Articles de blog
 ```
+
+## Système d'Offres d'Emploi
+
+Le site intègre un système automatisé de récupération et d'affichage des offres d'emploi :
+
+1. **Récupération des Données** :
+   - Utilisation de l'API Google Jobs via SerpAPI
+   - Mise à jour automatique toutes les heures via GitHub Actions
+   - Stockage des offres dans `jobs/latest_jobs.json`
+
+2. **Affichage Dynamique** :
+   - Les offres sont chargées dynamiquement sur la page d'accueil
+   - Interface responsive avec animations
+   - Filtrage par ville et type de contrat
+
+3. **Mise à Jour Automatique** :
+   - GitHub Action configurée pour s'exécuter toutes les heures
+   - Récupération des dernières offres d'emploi
+   - Commit et push automatiques des mises à jour
+
+4. **Configuration Requise** :
+   - Clé API SerpAPI (à configurer dans les secrets GitHub)
+   - Token GitHub pour les actions automatiques
 
 ## Hébergement sur GitHub Pages
 

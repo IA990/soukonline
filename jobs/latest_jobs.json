@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Développeur Full Stack",
+    "company": "Tech Solutions Maroc",
+    "location": "Casablanca",
+    "description": "Nous recherchons un développeur Full Stack expérimenté pour rejoindre notre équipe dynamique. Compétences requises : React, Node.js, MongoDB, et une expérience en développement d'applications web modernes.",
+    "posted_at": "2024-04-09T08:00:00",
+    "link": "https://example.com/jobs/dev-fullstack"
+  },
+  {
+    "title": "Chef de Projet Digital",
+    "company": "Agence Digitale Premium",
+    "location": "Rabat",
+    "description": "Poste de Chef de Projet Digital pour gérer des projets web et mobile de grande envergure. Vous serez responsable de la coordination entre les équipes techniques et les clients.",
+    "posted_at": "2024-04-08T15:30:00",
+    "link": "https://example.com/jobs/chef-projet"
+  },
+  {
+    "title": "UI/UX Designer Senior",
+    "company": "Creative Studio",
+    "location": "Marrakech",
+    "description": "Recherche Designer UI/UX expérimenté pour créer des interfaces utilisateur innovantes et intuitives. Maîtrise de Figma et Adobe Creative Suite requise.",
+    "posted_at": "2024-04-08T10:00:00",
+    "link": "https://example.com/jobs/designer"
+  },
+  {
+    "title": "Ingénieur DevOps",
+    "company": "Cloud Services Morocco",
+    "location": "Tanger",
+    "description": "Poste d'Ingénieur DevOps pour gérer notre infrastructure cloud. Expérience avec AWS, Docker, Kubernetes et les pratiques CI/CD moderne requise.",
+    "posted_at": "2024-04-07T14:00:00",
+    "link": "https://example.com/jobs/devops"
+  },
+  {
+    "title": "Data Scientist",
+    "company": "Analytics Morocco",
+    "location": "Casablanca",
+    "description": "Nous recherchons un Data Scientist pour rejoindre notre équipe d'analyse de données. Expertise en Python, R, et apprentissage automatique nécessaire.",
+    "posted_at": "2024-04-07T09:00:00",
+    "link": "https://example.com/jobs/data-scientist"
+  },
+  {
+    "title": "Commercial B2B",
+    "company": "Tech Distribution",
+    "location": "Agadir",
+    "description": "Poste de Commercial B2B dans le secteur des solutions technologiques. Expérience en vente de solutions IT aux entreprises requise.",
+    "posted_at": "2024-04-06T16:00:00",
+    "link": "https://example.com/jobs/commercial"
+  }
+]
