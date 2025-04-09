@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Bel appartement meublé avec terrasse",
+    "price": "6 500 DH/mois",
+    "location": "Casablanca, Maarif",
+    "description": "Magnifique appartement meublé de 85m² avec 2 chambres, salon, cuisine équipée et grande terrasse. Résidence sécurisée avec parking.",
+    "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500",
+    "posted_at": "2024-04-09T10:30:00",
+    "link": "https://example.com/rental1",
+    "type": "location"
+  },
+  {
+    "title": "Studio moderne au centre-ville",
+    "price": "3 800 DH/mois",
+    "location": "Rabat, Agdal",
+    "description": "Studio moderne et lumineux de 45m² entièrement rénové. Proche des commerces et transports.",
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500",
+    "posted_at": "2024-04-09T09:15:00",
+    "link": "https://example.com/rental2",
+    "type": "location"
+  },
+  {
+    "title": "Villa avec piscine",
+    "price": "15 000 DH/mois",
+    "location": "Marrakech, Guéliz",
+    "description": "Superbe villa de 300m² avec 4 chambres, grand jardin et piscine privée. Quartier calme et sécurisé.",
+    "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500",
+    "posted_at": "2024-04-09T08:45:00",
+    "link": "https://example.com/rental3",
+    "type": "location"
+  },
+  {
+    "title": "Chambre en colocation",
+    "price": "1 800 DH/mois",
+    "location": "Fès, Centre",
+    "description": "Grande chambre meublée dans appartement partagé avec 2 autres colocataires. Wifi et charges incluses.",
+    "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500",
+    "posted_at": "2024-04-09T11:00:00",
+    "link": "https://example.com/rental4",
+    "type": "colocation"
+  },
+  {
+    "title": "Colocation dans villa moderne",
+    "price": "2 500 DH/mois",
+    "location": "Tanger, Malabata",
+    "description": "Chambre privée dans villa moderne avec jardin. Accès cuisine équipée et salon commun. Ambiance conviviale.",
+    "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=500",
+    "posted_at": "2024-04-09T10:00:00",
+    "link": "https://example.com/rental5",
+    "type": "colocation"
+  },
+  {
+    "title": "Appartement vue sur mer",
+    "price": "8 000 DH/mois",
+    "location": "Agadir, Centre",
+    "description": "Bel appartement de 100m² avec vue imprenable sur la mer. 3 chambres, 2 salles de bain, cuisine équipée.",
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500",
+    "posted_at": "2024-04-09T09:30:00",
+    "link": "https://example.com/rental6",
+    "type": "location"
+  }
+]

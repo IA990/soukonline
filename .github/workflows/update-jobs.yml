@@ -1,4 +1,4 @@
-name: Update Jobs
+name: Update Jobs and Rentals
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # Permet le déclenchement manuel
 
 jobs:
-  update-jobs:
+  update-content:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,11 +25,15 @@ jobs:
         run: |
           python jobs/fetch_jobs.py
           
+      - name: Update rentals
+        run: |
+          python rentals/fetch_rentals.py
+          
       - name: Commit and push if changed
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
-          git add jobs/latest_jobs.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour automatique des offres d'emploi - $(date)" && git push)
+          git add jobs/latest_jobs.json rentals/latest_rentals.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour automatique des offres - $(date)" && git push)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jobs.js" defer></script>
+    <script src="js/rentals.js" defer></script>
 </head>
 <body class="font-sans bg-gray-50">
     <!-- Header avec animation -->
@@ -23,6 +24,7 @@
                 <a href="index.html" class="text-gray-600 hover:text-primary transition-colors">Accueil</a>
                 <a href="#categories" class="text-gray-600 hover:text-primary transition-colors">Catégories</a>
                 <a href="#jobs" class="text-gray-600 hover:text-primary transition-colors">Emploi</a>
+                <a href="#rentals" class="text-gray-600 hover:text-primary transition-colors">Immobilier</a>
                 <a href="#latest-ads" class="text-gray-600 hover:text-primary transition-colors">Annonces</a>
                 <a href="#contact" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
             </div>
@@ -120,6 +122,43 @@
                 <a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors">
                     <i class="fas fa-briefcase mr-2"></i>
                     Voir toutes les offres d'emploi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rentals Section -->
+    <section id="rentals" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Locations & Colocations</h2>
+            
+            <!-- Filtres -->
+            <div class="mb-8">
+                <div class="max-w-md mx-auto">
+                    <label for="city-select" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-map-marker-alt mr-2 text-primary"></i>Filtrer par ville
+                    </label>
+                    <select id="city-select" 
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <!-- Les villes seront chargées dynamiquement -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Conteneur des annonces -->
+            <div id="rentals-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Les annonces seront chargées dynamiquement ici -->
+                <div class="col-span-3 text-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto"></div>
+                    <p class="mt-4 text-gray-600">Chargement des annonces...</p>
+                </div>
+            </div>
+
+            <!-- View All Rentals Button -->
+            <div class="text-center mt-8">
+                <a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors">
+                    <i class="fas fa-home mr-2"></i>
+                    Voir toutes les annonces
                 </a>
             </div>
         </div>
