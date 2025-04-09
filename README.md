@@ -47,8 +47,9 @@ soukonline/
 Le site intègre un système automatisé de récupération et d'affichage des offres d'emploi :
 
 1. **Récupération des Données** :
-   - Utilisation de l'API Google Jobs via SerpAPI
+   - Récupération automatique des offres depuis Emploi.ma
    - Mise à jour automatique toutes les heures via GitHub Actions
+   - Pas de clé API nécessaire
    - Stockage des offres dans `jobs/latest_jobs.json`
 
 2. **Affichage Dynamique** :
@@ -62,8 +63,8 @@ Le site intègre un système automatisé de récupération et d'affichage des of
    - Commit et push automatiques des mises à jour
 
 4. **Configuration Requise** :
-   - Clé API SerpAPI (à configurer dans les secrets GitHub)
-   - Token GitHub pour les actions automatiques
+   - Aucune clé API nécessaire
+   - Le système fonctionne automatiquement avec GitHub Actions
 
 ## Hébergement sur GitHub Pages
 
