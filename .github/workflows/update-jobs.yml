@@ -1,4 +1,4 @@
-name: Update Jobs and Rentals
+name: Update Jobs, Rentals and Directory
 
 on:
   schedule:
@@ -29,11 +29,15 @@ jobs:
         run: |
           python rentals/fetch_rentals.py
           
+      - name: Update directory
+        run: |
+          python directory/fetch_companies.py
+          
       - name: Commit and push if changed
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
-          git add jobs/latest_jobs.json rentals/latest_rentals.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour automatique des offres - $(date)" && git push)
+          git add jobs/latest_jobs.json rentals/latest_rentals.json directory/companies.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour automatique des offres et de l'annuaire - $(date)" && git push)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,6 +1,64 @@
 {
   "sectors": [
     {
+      "name": "Santé",
+      "companies": [
+        {
+          "name": "Dr. Ahmed Benani",
+          "description": "Médecin généraliste",
+          "address": "12 Rue Mohammed V, Quartier Hassan, Rabat",
+          "phone": "+212 537 123 456",
+          "email": "dr.benani@email.ma",
+          "website": "https://dr-benani.ma",
+          "social": {
+            "linkedin": "dr-benani",
+            "facebook": "DrBenani"
+          }
+        },
+        {
+          "name": "Clinique Dentaire El Fadili",
+          "description": "Cabinet dentaire spécialisé",
+          "address": "45 Boulevard Zerktouni, Maarif, Casablanca",
+          "phone": "+212 522 987 654",
+          "email": "contact@clinique-elfadili.ma",
+          "website": "https://clinique-elfadili.ma",
+          "social": {
+            "linkedin": "clinique-elfadili",
+            "facebook": "CliniqueElFadili"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Juridique",
+      "companies": [
+        {
+          "name": "Maître Karima Alaoui",
+          "description": "Avocate spécialisée en droit des affaires",
+          "address": "8 Avenue FAR, Guéliz, Marrakech",
+          "phone": "+212 524 456 789",
+          "email": "contact@alaoui-law.ma",
+          "website": "https://alaoui-law.ma",
+          "social": {
+            "linkedin": "karima-alaoui",
+            "facebook": "CabinetAlaoui"
+          }
+        },
+        {
+          "name": "Cabinet Notarial Benjelloun",
+          "description": "Services notariaux et conseil juridique",
+          "address": "23 Rue Ibn Sina, Agdal, Rabat",
+          "phone": "+212 537 789 123",
+          "email": "info@notaire-benjelloun.ma",
+          "website": "https://notaire-benjelloun.ma",
+          "social": {
+            "linkedin": "notaire-benjelloun",
+            "facebook": "NotaireBenjelloun"
+          }
+        }
+      ]
+    },
+    {
       "name": "Technologies & IT",
       "companies": [
         {
@@ -30,59 +88,59 @@
       ]
     },
     {
-      "name": "Finance & Banque",
+      "name": "Comptabilité & Audit",
       "companies": [
         {
-          "name": "Atlas Invest",
-          "description": "Services financiers et investissements",
-          "address": "Avenue Hassan II, Rabat",
-          "phone": "+212 537 456 789",
-          "email": "contact@atlasinvest.ma",
-          "website": "https://www.atlasinvest.ma",
+          "name": "Cabinet Comptable Rami",
+          "description": "Expert-comptable et commissaire aux comptes",
+          "address": "56 Avenue Hassan II, Fès",
+          "phone": "+212 535 789 456",
+          "email": "contact@cabinet-rami.ma",
+          "website": "https://cabinet-rami.ma",
           "social": {
-            "linkedin": "atlasinvest",
-            "facebook": "atlasinvestma"
+            "linkedin": "cabinet-rami",
+            "facebook": "CabinetRami"
           }
         },
         {
-          "name": "Finance Plus",
-          "description": "Conseil en gestion financière",
-          "address": "Boulevard Mohammed V, Marrakech",
-          "phone": "+212 524 789 123",
-          "email": "info@financeplus.ma",
-          "website": "https://www.financeplus.ma",
+          "name": "Audit & Conseil Maroc",
+          "description": "Services d'audit et conseil fiscal",
+          "address": "34 Boulevard Mohammed VI, Tanger",
+          "phone": "+212 539 456 123",
+          "email": "info@audit-conseil.ma",
+          "website": "https://audit-conseil.ma",
           "social": {
-            "linkedin": "financeplus",
-            "facebook": "financeplusma"
+            "linkedin": "audit-conseil",
+            "facebook": "AuditConseilMaroc"
           }
         }
       ]
     },
     {
-      "name": "Industrie & Manufacturing",
+      "name": "Architecture & Design",
       "companies": [
         {
-          "name": "Atlas Industries",
-          "description": "Production industrielle et manufacturing",
-          "address": "Zone Industrielle, Tanger",
-          "phone": "+212 539 321 654",
-          "email": "contact@atlasindustries.ma",
-          "website": "https://www.atlasindustries.ma",
+          "name": "Studio Architecture Moderne",
+          "description": "Cabinet d'architecture et design d'intérieur",
+          "address": "78 Rue des Arts, Guéliz, Marrakech",
+          "phone": "+212 524 321 789",
+          "email": "contact@sam-architectes.ma",
+          "website": "https://sam-architectes.ma",
           "social": {
-            "linkedin": "atlasindustries",
-            "facebook": "atlasindustriesma"
+            "linkedin": "sam-architectes",
+            "facebook": "StudioArchitectureModerne"
           }
         },
         {
-          "name": "Maroc Manufacturing",
-          "description": "Solutions industrielles innovantes",
-          "address": "Parc Industriel, Kénitra",
-          "phone": "+212 537 654 321",
-          "email": "info@marocmanufacturing.ma",
-          "website": "https://www.marocmanufacturing.ma",
+          "name": "Design Plus",
+          "description": "Bureau d'études et conception architecturale",
+          "address": "12 Avenue des FAR, Agadir",
+          "phone": "+212 528 789 456",
+          "email": "info@designplus.ma",
+          "website": "https://designplus.ma",
           "social": {
-            "linkedin": "marocmanufacturing",
-            "facebook": "marocmanufacturingma"
+            "linkedin": "design-plus",
+            "facebook": "DesignPlusMaroc"
           }
         }
       ]
