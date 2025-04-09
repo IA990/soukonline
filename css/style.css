@@ -1,0 +1,38 @@
+@import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+
+/* Animations personnalisées */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Personnalisation des couleurs */
+:root {
+    --primary: #E63946;
+    --secondary: #1D3557;
+    --accent: #457B9D;
+}
+
+/* Styles personnalisés */
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-accent { color: var(--accent); }
+
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-accent { background-color: var(--accent); }
+
+/* Hover effects */
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.hover\:shadow-lg:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
