@@ -158,7 +158,7 @@ async function loadDirectory() {
         `;
 
         // Charger les données
-        const response = await fetch('/directory/companies.json');
+        const response = await fetch('directory/companies.json');
         if (!response.ok) throw new Error('Erreur lors du chargement des données');
         
         directoryData = await response.json();

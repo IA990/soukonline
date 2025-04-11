@@ -1,0 +1,168 @@
+name: Update and Maintain Data
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Toutes les 6 heures
+  workflow_dispatch:  # Permet le déclenchement manuel
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Update jobs data
+      run: python jobs/fetch_jobs.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+    - name: Update companies data
+      run: python directory/fetch_companies.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+    - name: Update rentals data
+      run: python rentals/fetch_rentals.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  maintain-storage:
+    runs-on: ubuntu-latest
+    needs: update-data
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Clean temporary files
+      run: |
+        python -c "
+        import shutil
+        import os
+        from datetime import datetime, timedelta
+        
+        # Nettoyer les fichiers temporaires de plus de 24h
+        temp_dir = 'storage/temp'
+        if os.path.exists(temp_dir):
+            for file in os.listdir(temp_dir):
+                file_path = os.path.join(temp_dir, file)
+                if os.path.getctime(file_path) < (datetime.now() - timedelta(days=1)).timestamp():
+                    os.remove(file_path)
+        "
+      
+    - name: Optimize storage
+      run: |
+        python -c "
+        import os
+        import json
+        from storage.media_manager import MediaManager
+        from storage.config import StorageConfig
+        
+        # Initialiser le gestionnaire de médias
+        media_manager = MediaManager(os.getenv('GITHUB_TOKEN'))
+        
+        # Optimiser les images
+        index = media_manager._load_media_index()
+        for image in index.get('images', []):
+            try:
+                media_manager._optimize_image(image['path'])
+            except Exception as e:
+                print(f'Erreur lors de l\'optimisation de {image['path']}: {str(e)}')
+        
+        # Mettre à jour l'index
+        media_manager._save_media_index(index)
+        "
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Generate storage report
+      run: |
+        python -c "
+        import json
+        import os
+        from datetime import datetime
+        
+        report = {
+            'timestamp': datetime.now().isoformat(),
+            'storage_usage': {},
+            'file_counts': {},
+            'errors': []
+        }
+        
+        # Analyser l'utilisation du stockage
+        for root, dirs, files in os.walk('storage'):
+            size = sum(os.path.getsize(os.path.join(root, name)) for name in files)
+            report['storage_usage'][root] = size
+            report['file_counts'][root] = len(files)
+        
+        # Sauvegarder le rapport
+        with open('storage/report.json', 'w') as f:
+            json.dump(report, f, indent=2)
+        "
+    
+    - name: Commit changes
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
+        git add storage/report.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Mise à jour du rapport de stockage - $(date)" && git push)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  cleanup-old-data:
+    runs-on: ubuntu-latest
+    needs: maintain-storage
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Clean old data
+      run: |
+        python -c "
+        import json
+        import os
+        from datetime import datetime, timedelta
+        
+        # Nettoyer les anciennes offres d'emploi (plus de 30 jours)
+        with open('jobs/latest_jobs.json', 'r') as f:
+            jobs = json.load(f)
+            jobs = [job for job in jobs if datetime.fromisoformat(job['posted_at']) > datetime.now() - timedelta(days=30)]
+        with open('jobs/latest_jobs.json', 'w') as f:
+            json.dump(jobs, f, indent=2)
+        
+        # Nettoyer les anciennes annonces immobilières (plus de 60 jours)
+        with open('rentals/latest_rentals.json', 'r') as f:
+            rentals = json.load(f)
+            rentals = [rental for rental in rentals if datetime.fromisoformat(rental['posted_at']) > datetime.now() - timedelta(days=60)]
+        with open('rentals/latest_rentals.json', 'w') as f:
+            json.dump(rentals, f, indent=2)
+        "
+    
+    - name: Commit cleanup
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
+        git add jobs/latest_jobs.json rentals/latest_rentals.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Nettoyage des anciennes données - $(date)" && git push)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
