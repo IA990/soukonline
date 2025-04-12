@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de CV - SoukOnline</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="js/media.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Création de CV</h1>
+    </header>
+    <main>
+        <form id="cv-form">
+            <div>
+                <label for="name">Nom :</label>
+                <input type="text" id="name" required>
+            </div>
+            <div>
+                <label for="email">Email :</label>
+                <input type="email" id="email" required>
+            </div>
+            <div>
+                <label for="phone">Téléphone :</label>
+                <input type="tel" id="phone">
+            </div>
+            <div>
+                <label for="position">Poste souhaité :</label>
+                <input type="text" id="position" required>
+            </div>
+            <div>
+                <label for="experience">Expérience :</label>
+                <textarea id="experience" rows="4"></textarea>
+            </div>
+            <div>
+                <label for="cv-file">Télécharger votre CV :</label>
+                <input type="file" id="cv-file" accept=".pdf,.doc,.docx" required>
+            </div>
+            <button type="submit">Créer CV</button>
+        </form>
+        <div id="upload-status"></div>
+    </main>
+    <script>
+        document.getElementById('cv-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('position', document.getElementById('position').value);
+            formData.append('experience', document.getElementById('experience').value);
+            formData.append('cv-file', document.getElementById('cv-file').files[0]);
+
+            try {
+                const response = await fetch('/soukonline/api/upload/cv', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                document.getElementById('upload-status').innerText = result.message;
+            } catch (error) {
+                console.error('Erreur lors de l\'upload:', error);
+                document.getElementById('upload-status').innerText = 'Erreur lors de l\'upload.';
+            }
+        });
+    </script>
+</body>
+</html>

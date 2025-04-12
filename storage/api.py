@@ -7,7 +7,7 @@ import base64
 app = Flask(__name__)
 media_manager = MediaManager(os.getenv("GITHUB_TOKEN"))
 
-@app.route("/api/upload/<file_type>", methods=["POST"])
+@app.route("/api/upload/cv", methods=["POST"])
 def upload_file(file_type):
     """
     Upload un fichier (image, document, CV)
