@@ -1,7 +1,7 @@
 // Gestionnaire de médias pour SoukOnline
 class MediaManager {
     constructor() {
-        this.apiBaseUrl = '/api';
+        this.apiBaseUrl = '/soukonline/api'; // Mise à jour du chemin
         this.uploadEndpoint = `${this.apiBaseUrl}/upload`;
         this.filesEndpoint = `${this.apiBaseUrl}/files`;
     }

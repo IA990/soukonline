@@ -6,7 +6,8 @@
     <title>Création de CV - SoukOnline</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    <script src="js/media.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.1.0/docx.min.js"></script>
 </head>
 <body>
     <header>
@@ -41,6 +42,8 @@
             <button type="submit">Créer CV</button>
         </form>
         <div id="upload-status"></div>
+        <button id="download-pdf">Télécharger en PDF</button>
+        <button id="download-doc">Télécharger en Word</button>
     </main>
     <script>
         document.getElementById('cv-form').addEventListener('submit', async (e) => {
@@ -64,6 +67,40 @@
                 console.error('Erreur lors de l\'upload:', error);
                 document.getElementById('upload-status').innerText = 'Erreur lors de l\'upload.';
             }
+        });
+
+        document.getElementById('download-pdf').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.text(`Nom: ${document.getElementById('name').value}`, 10, 10);
+            doc.text(`Email: ${document.getElementById('email').value}`, 10, 20);
+            doc.text(`Téléphone: ${document.getElementById('phone').value}`, 10, 30);
+            doc.text(`Poste souhaité: ${document.getElementById('position').value}`, 10, 40);
+            doc.text(`Expérience: ${document.getElementById('experience').value}`, 10, 50);
+            doc.save('cv.pdf');
+        });
+
+        document.getElementById('download-doc').addEventListener('click', () => {
+            const doc = new window.docx.Document();
+            doc.addSection({
+                children: [
+                    new window.docx.Paragraph(`Nom: ${document.getElementById('name').value}`),
+                    new window.docx.Paragraph(`Email: ${document.getElementById('email').value}`),
+                    new window.docx.Paragraph(`Téléphone: ${document.getElementById('phone').value}`),
+                    new window.docx.Paragraph(`Poste souhaité: ${document.getElementById('position').value}`),
+                    new window.docx.Paragraph(`Expérience: ${document.getElementById('experience').value}`)
+                ],
+            });
+
+            window.docx.Packer.toBlob(doc).then((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'cv.docx';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
         });
     </script>
 </body>
