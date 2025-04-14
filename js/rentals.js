@@ -1,7 +1,7 @@
 // Fonction pour charger les villes et régions
 async function loadCities() {
     try {
-        const response = await fetch('/soukonline/data/cities.json');
+        const response = await fetch('/data/cities.json');
         const data = await response.json();
         
         // Remplir le sélecteur de villes
@@ -91,7 +91,7 @@ function createRentalCard(rental) {
 // Fonction pour charger et afficher les annonces
 async function loadRentals() {
     try {
-        const response = await fetch('/soukonline/rentals/latest_rentals.json');
+        const response = await fetch('/rentals/latest_rentals.json');
         const rentals = await response.json();
         
         const rentalsContainer = document.querySelector('#rentals-container');
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (citySelect) {
         citySelect.addEventListener('change', async () => {
             const selectedCity = citySelect.value.toLowerCase();
-            const response = await fetch('/soukonline/rentals/latest_rentals.json');
+            const response = await fetch('/rentals/latest_rentals.json');
             const rentals = await response.json();
             
             const filteredRentals = selectedCity

@@ -44,7 +44,7 @@ function createJobCard(job) {
 // Fonction pour charger et afficher les offres d'emploi
 async function loadJobs() {
     try {
-        const response = await fetch('/soukonline/jobs/latest_jobs.json');
+        const response = await fetch('/jobs/latest_jobs.json');
         const jobs = await response.json();
         
         const jobsContainer = document.querySelector('#jobs-container');
